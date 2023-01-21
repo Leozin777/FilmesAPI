@@ -1,5 +1,6 @@
 /Gemfile.lock
 /Gemfile.noed25519.lock
+/.ssh
 doc
 rdoc
 ri
