@@ -58,3 +58,5 @@ C:\Users\leobo\OneDrive\Área de Trabalho\Estudos\.net_alura\FilmesAPI\FilmesAPI
 C:\Users\leobo\OneDrive\Área de Trabalho\Estudos\.net_alura\FilmesAPI\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\leobo\OneDrive\Área de Trabalho\Estudos\.net_alura\FilmesAPI\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\Users\leobo\OneDrive\Área de Trabalho\Estudos\.net_alura\FilmesAPI\FilmesAPI\FilmesAPI\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\leobo\OneDrive\Área de Trabalho\Estudos\.net_alura\FilmesAPI\FilmesAPI\FilmesAPI\bin\Debug\net6.0\FilmesAPI.xml
+C:\Users\leobo\OneDrive\Área de Trabalho\Estudos\.net_alura\FilmesAPI\FilmesAPI\FilmesAPI\obj\Debug\net6.0\FilmesAPI.xml

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using FilmesApi.Data.Dtos;
 using FilmesAPI.Data;
 using FilmesAPI.DTOs;
 using FilmesAPI.Models;
@@ -32,9 +33,9 @@ public class FilmeController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<Filme> RecuperaFilmes([FromQuery]int p_skip = 0, [FromQuery]int p_take = 50)
+    public IEnumerable<ReadFilmeDTO> RecuperaFilmes([FromQuery]int p_skip = 0, [FromQuery]int p_take = 50)
     {
-        return _context.Filmes.Skip(p_skip).Take(p_take);
+        return _mapper.Map<List<ReadFilmeDTO>>(_context.Filmes.Skip(p_skip).Take(p_take));
     }
 
     [HttpGet("{p_id}")]
@@ -44,7 +45,9 @@ public class FilmeController : ControllerBase
 
         if(filme == null) return NotFound();
 
-        return Ok(filme);
+        var filmeDto = _mapper.Map<ReadFilmeDTO>(filme);
+
+        return Ok(filmeDto);
     }
 
     [HttpPut("{p_id}")]
@@ -72,10 +75,22 @@ public class FilmeController : ControllerBase
         p_patch.ApplyTo(filmeParaAtualizar, ModelState);
 
         if (!TryValidateModel(filmeParaAtualizar))
-            return ValidationProblem(ModelState);
+            return ValidationProblem();
 
         _mapper.Map(filmeParaAtualizar, m_filmeDoBanco);
         _context.SaveChanges();
         return NoContent();
+    }
+
+    [HttpDelete("{p_id}")]
+    public IActionResult DeletaFilmePorID(int p_id)
+    {
+        var m_filmeDoBanco = _context.Filmes.FirstOrDefault(m_filmeDoBanco => m_filmeDoBanco.Id == p_id);
+        if (m_filmeDoBanco == null) return NotFound();
+
+        _context.Remove(m_filmeDoBanco);
+        _context.SaveChanges();
+        return NoContent();
+
     }
 }
